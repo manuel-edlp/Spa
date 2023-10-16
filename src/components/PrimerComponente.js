@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export const PrimerComponente = () => {
     
@@ -6,14 +7,14 @@ export const PrimerComponente = () => {
     let edad = 21;
     let lenguajes = ["C","C#","JavaScript","Java","Python"];
   
-    const [nombre,setNombre] = useState("Manuel")
-    const actualizar = (nuevo) => {setNombre(nuevo)}
+    const [nombre,setNombre] = useState("Manuel");
+    const actualizar = (nuevo) => {setNombre(nuevo)};
 
     
   
     return (
     <div>
-        <h1>Soy el Primer Componente</h1>
+        
         <input onChange={e => actualizar(e.target.value)}placeholder='Cambia el nombre'></input>
         <button onClick={e => actualizar("Merequetengue")}>Tocame</button>
         <p>Nombre: {nombre}, {edad} años</p>
