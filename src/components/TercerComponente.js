@@ -14,11 +14,30 @@ export const TercerComponente = () => {
     return (
         <div>
           <h2>Lista de Videojuegos</h2>
-          <ul>
-            {videoJuegos.map((videojuego) => (
-              <li key={videojuego.id}>{videojuego.nombre}</li>
-            ))}
-          </ul>
+          {
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Año</th>
+                  <th scope="col">Desarrollador</th>
+                  <th scope="col">Peso</th>
+                </tr>
+              </thead>
+              <tbody>
+              {videoJuegos.map((videojuego) => (  
+                <tr key={videojuego.id}>
+                  <th scope="row">videojuego.id</th>
+                  <td>{videojuego.nombre}</td>
+                  <td>{videojuego.año}</td>
+                  <td>{videojuego.desarrollador}</td>
+                  <td>{videojuego.peso}</td>
+                </tr>
+                ))}
+              </tbody>
+            </table>
+          }
         </div>
       );
 }
