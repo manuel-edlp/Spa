@@ -18,7 +18,6 @@ export const TercerComponente = () => {
             <table class="table table-hover table-dark">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Año</th>
                   <th scope="col">Desarrollador</th>
@@ -28,7 +27,6 @@ export const TercerComponente = () => {
               <tbody>
               {videoJuegos.map((videojuego) => (  
                 <tr key={videojuego.id}>
-                  <th scope="row">videojuego.id</th>
                   <td>{videojuego.nombre}</td>
                   <td>{videojuego.año}</td>
                   <td>{videojuego.desarrollador}</td>
