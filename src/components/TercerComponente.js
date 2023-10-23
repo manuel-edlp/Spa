@@ -12,8 +12,8 @@ export const TercerComponente = ({apiData}) => {
     },[apiData]);  
 
     return (
-        <div>
-          <h2>Lista de Videojuegos</h2>
+        <div className="lista">
+          <h2 id="lista-titulo">Lista de Videojuegos</h2>
           {
             <table class="table table-hover table-dark">
               <thead>

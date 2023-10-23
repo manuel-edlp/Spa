@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>API VideoJuegos</h1>
+        <h1 id="titulo-pagina">API VideoJuegos</h1>
         <PrimerComponente/>
         <SegundoComponente upload={handleDataUpload} />
         <TercerComponente  apiData={apiData}/>

@@ -23,7 +23,32 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.agregar{
+  background-color: rgb(32, 30, 39);
+  border-radius: 15px;
+  margin:20px;
+  padding: 15px;
+  box-shadow: 0px 0px 15px #0d1222;
+}
+#agregar-titulo{
+  margin-bottom: 15px;
+}
+.lista{
+  background-color: rgb(32, 30, 39);
+  border-radius: 15px;
+  margin:20px;
+  padding: 15px;
+  box-shadow: 0px 0px 15px #0d1222;
+}
+#lista-titulo{
+  margin-bottom: 15px;
+}
+.container{
+  margin: 20px;
+}
+#titulo-pagina{
+  margin: 10px;
+}
 .App-link {
   color: #61dafb;
 }

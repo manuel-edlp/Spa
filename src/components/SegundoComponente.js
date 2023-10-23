@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import {TercerComponente} from './TercerComponente';
 
+
 export const SegundoComponente = ({upload}) => {
   const [videojuego, setVideojuego] = useState({
     nombre: '',
@@ -27,8 +28,8 @@ export const SegundoComponente = ({upload}) => {
 
 
   return (
-    <div>
-      <div>Agregar Videojuego</div>
+    <div className="agregar">
+      <div id="agregar-titulo">Agregar Videojuego</div>
       <div className="card-body">
         <h5 className="card-title"></h5>
         <div id="card-content">
