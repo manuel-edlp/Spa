@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const TercerComponente = () => {
+export const TercerComponente = ({apiData}) => {
 
     const [videoJuegos,setVideoJuegos] = useState([]);
 
@@ -9,7 +9,7 @@ export const TercerComponente = () => {
         axios.get('https://localhost:5001/WebApi/VideoJuego/')
         .then((response)=> { setVideoJuegos(response.data);})
         .catch((error)=>{console.error(error);})
-    },[]);  
+    },[apiData]);  
 
     return (
         <div>

@@ -1,8 +1,8 @@
-import React,{ useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
+import {TercerComponente} from './TercerComponente';
 
-export const SegundoComponente = () => {
-
+export const SegundoComponente = ({upload}) => {
   const [videojuego, setVideojuego] = useState({
     nombre: '',
     desarrollador: '',
@@ -10,72 +10,104 @@ export const SegundoComponente = () => {
     peso: '',
   });
 
+ 
+
   const agregarVideojuego = async () => {
     const respuesta = await axios.post('https://localhost:5001/WebApi/VideoJuego/', videojuego);
+    upload(respuesta.data);
 
-    if (respuesta.status === 200) {
+    if (respuesta.status === 201) {
       console.log("Se agregó el videojuego correctamente");
+      // Actualizar videoJuegos en App mediante la función de devolución de llamada
+
     } else {
-      console.log("Se produjo un error al agregar el videojuego"); 
+      console.log("Se produjo un error al agregar el videojuego");
     }
   };
 
-// la funcion onChange recibe un evento que contiene la info que se modificó en el input y el nuevo valor.
-// con ...videojuego se crea una copia de videojuego y se actualiza el campo modificado
-// ese copia de videojuego se pasa como parametro a la funcion setVideojuego que actualiza automaticamente el estado videojugo del componente
-  return ( 
+
+  return (
     <div>
       <div>Agregar Videojuego</div>
-      <div class="card-body">
-        <h5 class="card-title"></h5>
+      <div className="card-body">
+        <h5 className="card-title"></h5>
         <div id="card-content">
-            <div class="mb-3">
-              <label for="" class="form-label">Nombre</label>
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese nombre" 
-                 onChange={(e) => setVideojuego({ ...videojuego, nombre: e.target.value })}/>
-                 
-            </div>     
+          <div className="mb-3">
+            <label htmlFor="nombre" className="form-label">
+              Nombre
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="nombre"
+              id="nombre"
+              placeholder="Ingrese nombre"
+              onChange={(e) => setVideojuego({ ...videojuego, nombre: e.target.value })}/>
+          </div>
         </div>
       </div>
 
-      <div class="card-body">
-        <h5 class="card-title"></h5>
+      <div className="card-body">
+        <h5 className="card-title"></h5>
         <div id="card-content">
-            <div class="mb-3">
-              <label for="" class="form-label">Desarrollador</label>
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese desarrollador"
-               onChange={(e) => setVideojuego({ ...videojuego, desarrollador: e.target.value })}/>
-            </div>     
+          <div className="mb-3">
+            <label htmlFor="desarrollador" className="form-label">
+              Desarrollador
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="desarrollador"
+              id="desarrollador"
+              placeholder="Ingrese desarrollador"
+              onChange={(e) => setVideojuego({ ...videojuego, desarrollador: e.target.value })}/>
+          </div>
         </div>
       </div>
 
-      <div class="card-body">
-        <h5 class="card-title"></h5>
+      <div className="card-body">
+        <h5 className="card-title"></h5>
         <div id="card-content">
-            <div class="mb-3">
-              <label for="" class="form-label">Año</label>
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese año"
-               onChange={(e) => setVideojuego({ ...videojuego, año: e.target.value })}/>
-            </div>     
+          <div className="mb-3">
+            <label htmlFor="año" className="form-label">
+              Año
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="año"
+              id="año"
+              placeholder="Ingrese año"
+              onChange={(e) => setVideojuego({ ...videojuego, año: e.target.value })}/>
+          </div>
+        </div>
+      </div>
+
+      <div className="card-body">
+        <h5 className="card-title"></h5>
+        <div id="card-content">
+          <div className="mb-3">
+            <label htmlFor="peso" className="form-label">
+              Peso
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="peso"
+              id="peso"
+              placeholder="Ingrese peso"
+              onChange={(e) => setVideojuego({ ...videojuego, peso: e.target.value })}/>
+          </div>
         </div>
       </div>
       
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <div id="card-content">
-            <div class="mb-3">
-              <label for="" class="form-label">Peso</label>
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese peso"
-               onChange={(e) => setVideojuego({ ...videojuego, peso: e.target.value })}/> 
-            </div>     
-        </div>
-      </div>   
-
-      <button class="btn btn-primary" onClick={agregarVideojuego}>Agregar</button> 
-
+      <button className="btn btn-primary" onClick={agregarVideojuego}>
+        Agregar
+      </button>
     </div>
+  );
+};
 
-    
-  )
-}
+
 // <button class="btn btn-primary">Suscribirse</button> 
+
