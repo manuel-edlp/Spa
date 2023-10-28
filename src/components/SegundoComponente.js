@@ -29,7 +29,7 @@ export const SegundoComponente = ({upload}) => {
 
   return (
     <div className="agregar">
-      <div id="agregar-titulo">Agregar Videojuego</div>
+      <div id="titulo">Agregar Videojuego</div>
       <div className="card-body">
         <h5 className="card-title"></h5>
         <div id="card-content">
@@ -102,7 +102,7 @@ export const SegundoComponente = ({upload}) => {
         </div>
       </div>
       
-      <button className="btn btn-primary" onClick={agregarVideojuego}>
+      <button className="btn btn-success" onClick={agregarVideojuego}>
         Agregar
       </button>
     </div>
