@@ -21,7 +21,7 @@ export const TercerComponente = ({apiData}) => {
                   <th scope="col">Nombre</th>
                   <th scope="col">Año</th>
                   <th scope="col">Desarrollador</th>
-                  <th scope="col">Peso</th>
+                  <th scope="col">Peso (GB)</th>
                 </tr>
               </thead>
               <tbody>
