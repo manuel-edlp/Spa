@@ -6,7 +6,7 @@ export const TercerComponente = ({apiData}) => {
     const [videoJuegos,setVideoJuegos] = useState([]);
 
     useEffect(() => {
-        axios.get('https://localhost:5001/WebApi/VideoJuego/')
+        axios.get('https://localhost:5001/WebApi/VideoJuego/listar')
         .then((response)=> { setVideoJuegos(response.data);})
         .catch((error)=>{console.error(error);})
     },[apiData]);  

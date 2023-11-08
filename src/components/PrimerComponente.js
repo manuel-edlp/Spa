@@ -1,7 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-export const PrimerComponente = () => {
+// falta un hover en la lista de busqueda
+// mejorar el mensaje de modificacion con exito (usar notifiacion toast?)
+
+export const PrimerComponente = ({upload}) => {
+  const [videojuego, setVideojuego] = useState({
+    nombre: '',
+    desarrollador: '',
+    año: '',
+    peso: '',
+  });
   const [busqueda, setBusqueda] = useState('');
   const [videojuegos, setVideojuegos] = useState([]);
   const [videojuegoSeleccionado, setVideojuegoSeleccionado] = useState(null);
@@ -25,7 +34,7 @@ export const PrimerComponente = () => {
 
   useEffect(() => {
     if (busqueda) {
-      axios.get(`https://localhost:5001/WebApi/VideoJuego/buscar/${busqueda}`)
+      axios.get(`https://localhost:5001/WebApi/VideoJuego/listar/${busqueda}`)
         .then(response => {
           setVideojuegos(response.data);
         })
@@ -41,7 +50,7 @@ export const PrimerComponente = () => {
 
   const handleVideojuegoSeleccionado = async (videojuego) => {
     
-    const respuesta = await axios.get(`https://localhost:5001/WebApi/VideoJuego/${videojuego.nombre}`);
+    const respuesta = await axios.get(`https://localhost:5001/WebApi/VideoJuego/buscar/${videojuego.nombre}`);
     setVideojuegoSeleccionado(respuesta.data);
     setMostrarResultados(false);
     setNombreOriginal(respuesta.data.nombre); // Almacena el nombre original al seleccionar el juego
@@ -53,6 +62,7 @@ export const PrimerComponente = () => {
  
 
     if (respuesta.status === 200) {
+      upload(respuesta.data);
       setMensaje('El juego se modificó correctamente.');
       setTimeout(() => {
         setMensaje('');
@@ -178,7 +188,7 @@ export const PrimerComponente = () => {
                   </div>
 
 
-                  <button onClick={modificarVideojuego}>Modificar</button>
+                  <button className="btn btn-success" onClick={modificarVideojuego}>Modificar</button>
                 </div>
               </div>
           </div>

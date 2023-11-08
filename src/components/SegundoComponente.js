@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import {TercerComponente} from './TercerComponente';
 
 
 export const SegundoComponente = ({upload}) => {
@@ -19,7 +18,7 @@ export const SegundoComponente = ({upload}) => {
 
     if (respuesta.status === 201) {
       console.log("Se agregó el videojuego correctamente");
-      // Actualizar videoJuegos en App mediante la función de devolución de llamada
+      
 
     } else {
       console.log("Se produjo un error al agregar el videojuego");
